@@ -3,6 +3,6 @@ A collection of scripts to customize Windows by manipulating the registry
 
 ## Windows Versions
 
-[Windows10](Windows10.md) 
+[Windows 10](Windows 10.md) 
 
-[Windows11](Windows11.md) 
+[Windows 11](Windows 11.md) 

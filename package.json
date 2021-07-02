@@ -1,0 +1,20 @@
+{
+  "name": "windows-customization-scripts",
+  "version": "1.0.0",
+  "description": "A collection of scripts to customize Windows by manipulating the registry",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d4rckh/windows-customization-scripts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d4rckh/windows-customization-scripts/issues"
+  },
+  "homepage": "https://github.com/d4rckh/windows-customization-scripts#readme"
+}
