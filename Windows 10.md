@@ -31,10 +31,11 @@ Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explo
 
 <details>
     <summary>Revert script</summary>
+
     
-    ```powershell
-    Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
-    ```
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
+```
     
 </details>  
 
@@ -49,10 +50,11 @@ Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Searc
 
 <details>
     <summary>Revert script</summary>
+
     
-    ```powershell
-    Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled"
-    ```
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled"
+```
     
 </details>  
 
@@ -73,10 +75,11 @@ Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollect
 
 <details>
     <summary>Revert script</summary>
+
     
-    ```powershell
-    Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry"
-    ```
+```powershell
+Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry"
+```
     
 </details>  
 
@@ -93,12 +96,13 @@ Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\lfsvc\Service\Co
 
 <details>
     <summary>Revert script</summary>
+
     
-    ```powershell
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" -Name "SensorPermissionState" -Type DWord -Value 1
+```powershell
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" -Name "SensorPermissionState" -Type DWord -Value 1
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\lfsvc\Service\Configuration" -Name "Status" -Type DWord -Value 1
 
-    ```
+```
     
 </details>  
 

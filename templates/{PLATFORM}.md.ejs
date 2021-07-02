@@ -25,10 +25,11 @@
 <% }) %>
 <details>
     <summary>Revert script</summary>
+
     <% customization.uncommitScripts.forEach(uncommitScript => {%>
-    ```<%- uncommitScript.scriptInterpreter %>
-    <%- uncommitScript.scriptContents %>
-    ```
+```<%- uncommitScript.scriptInterpreter %>
+<%- uncommitScript.scriptContents %>
+```
     <% }) %>
 </details>  
 <% if (customization.notes.length != 0) {%>
