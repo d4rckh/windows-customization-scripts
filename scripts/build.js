@@ -13,13 +13,14 @@ const platforms = []
 
 Customizations.forEach(customization => {
     console.log(customization)
-    customization.on.forEach(platform => {
+    const parsed = new Customization(customization)
+    parsedCustomizations.push(parsed)
+
+    parsed.on.forEach(platform => {
         if (!platforms.includes(platform)) {
             platforms.push(platform)
         } 
     })
-
-    parsedCustomizations.push(new Customization(customization))
 })
 
 const ReadmeTemplate = path.resolve(__dirname, "../templates/README.md.ejs")
