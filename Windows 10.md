@@ -1,8 +1,21 @@
 # Windows 10
 
+Windows 10 customization scripts.
+
+## Index
 
 
-## Show all tray icons
+[Show all tray icons](#Show%20all%20tray%20icons)
+
+[Disable Telemetry](#Disable%20Telemetry)
+
+[Disable Bing search](#Disable%20Bing%20search)
+
+[Disable Location Tracking](#Disable%20Location%20Tracking)
+
+
+
+# Show all tray icons
 
 
 
@@ -18,7 +31,7 @@ Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explo
 
 
 
-## Disable Telemetry
+# Disable Telemetry
 
 
 
@@ -34,7 +47,7 @@ Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollect
 
 
 
-## Disable Bing search
+# Disable Bing search
 
 
 
@@ -50,7 +63,7 @@ Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Searc
 
 
 
-## Disable Location Tracking
+# Disable Location Tracking
 
 
 

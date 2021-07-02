@@ -1,8 +1,15 @@
 # <%= platformName %>
 
+<%= platformName %> customization scripts.
+
+## Index
 
 <% Customizations.forEach(customization => { %>
-## <%= customization.name %>
+[<%= customization.name %>](#<%= customization.name.replaceAll(' ', '%20') %>)
+<% }) %>
+
+<% Customizations.forEach(customization => { %>
+# <%= customization.name %>
 <%= customization.description == 'No description.' ? '' : customization.description %>
 
 <% customization.commitScripts.forEach(commitScript => {%>
