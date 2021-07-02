@@ -4,12 +4,18 @@
 
 ## Index
 
-<% Customizations.forEach(customization => { %>
-[<%= customization.name %>](#<%= customization.name.toLowerCase().replaceAll(' ', '-') %>)
+<% categories.forEach(category => { %>
+[<%= category %>](#<%= category.toLowerCase().replaceAll(' ', '-') %>)
+<% Customizations.filter(a => a.categories.includes(category)).forEach(customization => { %> - [<%= customization.name %>](#<%= customization.name.toLowerCase().replaceAll(' ', '-') %>)
+<% }) %>
 <% }) %>
 
-<% Customizations.forEach(customization => { %>
-# <%= customization.name %>
+<% categories.forEach(category => { %>
+# <%= category %>
+
+
+<% Customizations.filter(a => a.categories.includes(category)).forEach(customization => { %>
+## <%= customization.name %>
 <%= customization.description == 'No description.' ? '' : customization.description %>
 
 <% customization.commitScripts.forEach(commitScript => {%>
@@ -17,12 +23,14 @@
 <%- commitScript.scriptContents %>
 ```
 <% }) %>
-### Revert Changes
-<% customization.uncommitScripts.forEach(uncommitScript => {%>
-```<%- uncommitScript.scriptInterpreter %>
-<%- uncommitScript.scriptContents %>
-```
-<% }) %>
+<details>
+    <summary>Revert script</summary>
+    <% customization.uncommitScripts.forEach(uncommitScript => {%>
+    ```<%- uncommitScript.scriptInterpreter %>
+    <%- uncommitScript.scriptContents %>
+    ```
+    <% }) %>
+</details>  
 <% if (customization.notes.length != 0) {%>
 ### Notes
 <% customization.notes.forEach(note => {%>
@@ -31,3 +39,4 @@
 <%}%>
 <% }) %>
 
+<% }) %>

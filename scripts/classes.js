@@ -28,6 +28,11 @@ class Customization {
         } else {
             this.uncommitScripts.push(new Script('powershell', obj.uncommitScripts))
         }
+        if (typeof obj.categories == 'object') {
+            this.categories = obj.categories
+        } else {
+            this.categories = [obj.categories]
+        }
     }
 }
 

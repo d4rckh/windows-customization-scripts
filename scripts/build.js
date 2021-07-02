@@ -9,7 +9,7 @@ const {Customizations} = YAML.parse(file)
 
 const parsedCustomizations = []
 const platforms = []
-
+const categories = []
 
 Customizations.forEach(customization => {
     console.log(customization)
@@ -19,6 +19,12 @@ Customizations.forEach(customization => {
     parsed.on.forEach(platform => {
         if (!platforms.includes(platform)) {
             platforms.push(platform)
+        } 
+    })
+
+    parsed.categories.forEach(category => {
+        if (!categories.includes(category)) {
+            categories.push(category)
         } 
     })
 })
@@ -38,7 +44,7 @@ platforms.forEach(platform => {
     const Platform = path.resolve(__dirname, "../" + platform + ".md")
     ejs.renderFile(PlatformTemplate, {Customizations: parsedCustomizations.filter(
         c => c.on.includes(platform)
-    ), platformName: platform}, {}, function(err, str){
+    ), platformName: platform, categories}, {}, function(err, str){
         if (err) return console.log(err);
         fs.writeFile(Platform, str, function (err) {
             if (err) return console.log(err);
