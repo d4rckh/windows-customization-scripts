@@ -5,7 +5,7 @@
 ## Index
 
 <% Customizations.forEach(customization => { %>
-[<%= customization.name %>](#<%= customization.name.replaceAll(' ', '%20') %>)
+[<%= customization.name %>](#<%= customization.name.toLowerCase().replaceAll(' ', '-') %>)
 <% }) %>
 
 <% Customizations.forEach(customization => { %>

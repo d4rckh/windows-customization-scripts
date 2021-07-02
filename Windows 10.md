@@ -5,13 +5,13 @@ Windows 10 customization scripts.
 ## Index
 
 
-[Show all tray icons](#Show%20all%20tray%20icons)
+[Show all tray icons](#show-all-tray-icons)
 
-[Disable Telemetry](#Disable%20Telemetry)
+[Disable Telemetry](#disable-telemetry)
 
-[Disable Bing search](#Disable%20Bing%20search)
+[Disable Bing search](#disable-bing-search)
 
-[Disable Location Tracking](#Disable%20Location%20Tracking)
+[Disable Location Tracking](#disable-location-tracking)
 
 
 
