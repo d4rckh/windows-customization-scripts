@@ -5,9 +5,13 @@ Windows 10 customization scripts.
 ## Index
 
 
-[explorer](#explorer)
+[ui](#ui)
  - [Show all tray icons](#show-all-tray-icons)
  - [Disable Bing search](#disable-bing-search)
+ - [Disable Action Center](#disable-action-center)
+ - [Disable Lockscreen](#disable-lockscreen)
+ - [Hide search box](#hide-search-box)
+ - [Disable Taskview](#disable-taskview)
 
 
 [privacy](#privacy)
@@ -17,7 +21,7 @@ Windows 10 customization scripts.
 
 
 
-# explorer
+# ui
 
 
 
@@ -54,6 +58,86 @@ Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Searc
     
 ```powershell
 Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled"
+```
+    
+</details>  
+
+
+## Disable Action Center
+
+
+
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter"
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
+
+```
+
+<details>
+    <summary>Revert script</summary>
+
+    
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter"
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
+
+```
+    
+</details>  
+
+
+## Disable Lockscreen
+
+
+
+```powershell
+Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
+```
+
+<details>
+    <summary>Revert script</summary>
+
+    
+```powershell
+Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
+```
+    
+</details>  
+
+
+## Hide search box
+
+
+
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode"
+```
+
+<details>
+    <summary>Revert script</summary>
+
+    
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode"
+```
+    
+</details>  
+
+
+## Disable Taskview
+
+
+
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton"
+```
+
+<details>
+    <summary>Revert script</summary>
+
+    
+```powershell
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton"
 ```
     
 </details>  

@@ -1,6 +1,6 @@
 Customizations:
   - name: Show all tray icons
-    categories: explorer
+    categories: ui
     commitScripts: Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
     uncommitScripts: Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
   - name: Disable Telemetry
@@ -8,7 +8,7 @@ Customizations:
     commitScripts: Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
     uncommitScripts: Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry"
   - name: Disable Bing search
-    categories: explorer
+    categories: ui
     commitScripts: Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Type DWord -Value 0
     uncommitScripts: Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled"
   - name: Disable Location Tracking
@@ -19,3 +19,31 @@ Customizations:
     uncommitScripts: |
         Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" -Name "SensorPermissionState" -Type DWord -Value 1
         Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\lfsvc\Service\Configuration" -Name "Status" -Type DWord -Value 1
+  - name: Disable Action Center
+    categories: ui
+    commitScripts: |
+      If (!(Test-Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer")) {
+        New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" | Out-Null
+      }
+      Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -Type DWord -Value 1
+      Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -Type DWord -Value 0
+    uncommitScripts: |
+      Remove-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter"
+      Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
+  - name: Disable Lockscreen
+    categories: ui
+    commitScripts: |
+      Write-Host "Disabling Lock screen..."
+      If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization")) {
+        New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" | Out-Null
+      }
+      Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
+    uncommitScripts: Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
+  - name: Hide search box
+    categories: ui
+    commitScripts: Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
+    uncommitScripts: Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode"
+  - name: Disable Taskview
+    categories: ui
+    commitScripts: Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+    uncommitScripts: Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton"
