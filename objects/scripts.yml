@@ -1,0 +1,10 @@
+Customizations:
+  - name: Show all tray icons
+    on: 
+      - Windows10
+      - Windows11
+    description: This will show you all the system tray icons on the taskbar, the arrow will disappear 
+    commitScripts:
+      powershell: Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
+    uncommitScripts:
+      powershell: Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"

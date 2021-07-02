@@ -1,0 +1,26 @@
+# <%= platformName %>
+
+
+<% Customizations.forEach(customization => { %>
+## <%= customization.name %>
+<%= customization.description %>
+### Commit
+<% customization.commitScripts.forEach(commitScript => {%>
+```<%- commitScript.scriptInterpreter %>
+<%- commitScript.scriptContents %>
+```
+<% }) %>
+### Uncommit
+<% customization.uncommitScripts.forEach(uncommitScript => {%>
+```<%- uncommitScript.scriptInterpreter %>
+<%- uncommitScript.scriptContents %>
+```
+<% }) %>
+<% if (customization.notes.length != 0) {%>
+### Notes
+<% customization.notes.forEach(note => {%>
+- <%- note %>
+<% }) %>
+<%}%>
+<% }) %>
+
